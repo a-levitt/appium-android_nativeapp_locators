@@ -17,7 +17,9 @@ public class NativeAppAndroidLocators {
 
         // Locator is not unique
         // WebElement menuElementAnimation = driver.findElement(AppiumBy.id("android:id/text1"));
-        WebElement menuElementAnimation = driver.findElement(AppiumBy.xpath("//*[@text='Animation']")); // Custom xpath locator
+        //
+        // Custom xpath locator
+        WebElement menuElementAnimation = driver.findElement(AppiumBy.xpath("//*[@text='Animation']"));
         menuElementAnimation.click();
         driver.navigate().back();
 
@@ -27,12 +29,26 @@ public class NativeAppAndroidLocators {
         menuElementApp.click();
         driver.navigate().back();
 
-        WebElement menuElementContent = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc='Content']")); // auto-xpath
+        // auto-xpath
+        WebElement menuElementContent = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc='Content']"));
         menuElementContent.click();
         driver.navigate().back();
 
         WebElement menuElementGraphics = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Graphics\")"));
         menuElementGraphics.click();
+        driver.navigate().back();
+
+        WebElement menuElementMedia = driver.findElements(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.TextView\")")).get(7);
+        menuElementMedia.click();
+        driver.navigate().back();
+
+        // content-desc
+        WebElement menuElementNfc = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().description(\"NFC\")"));
+        menuElementNfc.click();
+        driver.navigate().back();
+
+        WebElement menuElementOs = driver.findElements(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/text1\")")).get(8);
+        menuElementOs.click();
         driver.navigate().back();
     }
 }
