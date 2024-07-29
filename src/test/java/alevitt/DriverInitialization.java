@@ -8,11 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 
-public class NativeAppXmlLocators {
-    public static void main(String[] args) throws MalformedURLException{
-        initializeDriver();
-    }
-
+public class DriverInitialization {
     public static AppiumDriver initializeDriver() throws MalformedURLException {
         UiAutomator2Options options = new UiAutomator2Options()
                 //.setAvd("Pixel_8_virt")
