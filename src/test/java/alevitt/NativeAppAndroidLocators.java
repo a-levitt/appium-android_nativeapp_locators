@@ -13,7 +13,22 @@ public class NativeAppAndroidLocators {
 
         WebElement menuElementAccessibility = driver.findElement(AppiumBy.accessibilityId("Accessibility"));
         menuElementAccessibility.click();
+        driver.navigate().back();
 
+        // Locator is not unique
+        // WebElement menuElementAnimation = driver.findElement(AppiumBy.id("android:id/text1"));
+        WebElement menuElementAnimation = driver.findElement(AppiumBy.xpath("//*[@text='Animation']")); // Custom xpath locator
+        menuElementAnimation.click();
+        driver.navigate().back();
 
+        // Locator is not unique
+        // WebElement menuElementApp = driver.findElement(AppiumBy.className("android.widget.TextView"));
+        WebElement menuElementApp = driver.findElements(AppiumBy.className("android.widget.TextView")).get(4);
+        menuElementApp.click();
+        driver.navigate().back();
+
+        WebElement menuElementContent = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc='Content']"));
+        menuElementContent.click();
+        driver.navigate().back();
     }
 }
