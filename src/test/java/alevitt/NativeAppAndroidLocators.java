@@ -27,8 +27,12 @@ public class NativeAppAndroidLocators {
         menuElementApp.click();
         driver.navigate().back();
 
-        WebElement menuElementContent = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc='Content']"));
+        WebElement menuElementContent = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@content-desc='Content']")); // auto-xpath
         menuElementContent.click();
+        driver.navigate().back();
+
+        WebElement menuElementGraphics = driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Graphics\")"));
+        menuElementGraphics.click();
         driver.navigate().back();
     }
 }
