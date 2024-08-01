@@ -2,12 +2,21 @@ package alevitt;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.net.MalformedURLException;
+import java.util.Arrays;
 
 
 public class NativeAppAndroidLocators {
+    @FindBy(xpath = "//*[@text=\"Preference\"]") private static WebElement searchElement;
+    public NativeAppAndroidLocators(AppiumDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
+
     public static void main(String[] args) throws MalformedURLException{
         AppiumDriver driver = DriverInitialization.initializeDriver();
 
@@ -49,6 +58,10 @@ public class NativeAppAndroidLocators {
 
         WebElement menuElementOs = driver.findElements(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/text1\")")).get(8);
         menuElementOs.click();
+        driver.navigate().back();
+
+        NativeAppAndroidLocators nativeAppAndroidLocators = new NativeAppAndroidLocators(driver);
+        searchElement.click();
         driver.navigate().back();
     }
 }
