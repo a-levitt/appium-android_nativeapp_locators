@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +17,7 @@ public class NativeAppAndroidLocators {
     @FindBy(xpath = "//*[@text=\"Preference\"]")
     private static WebElement findByElement;
 
+    //@iOSXCUITFindBy(accessibility = "Text")
     @AndroidFindBy(xpath = "//*[@text=\"Text\"]")
     private static WebElement androidFindByElement;
 
@@ -26,7 +28,7 @@ public class NativeAppAndroidLocators {
     public static void main(String[] args) throws MalformedURLException{
         AppiumDriver driver = DriverInitialization.initializeDriver();
 
-        /*WebElement menuElementAccessibility = driver.findElement(AppiumBy.accessibilityId("Accessibility"));
+        WebElement menuElementAccessibility = driver.findElement(AppiumBy.accessibilityId("Accessibility"));
         menuElementAccessibility.click();
         driver.navigate().back();
 
@@ -64,7 +66,7 @@ public class NativeAppAndroidLocators {
 
         WebElement menuElementOs = driver.findElements(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/text1\")")).get(8);
         menuElementOs.click();
-        driver.navigate().back();*/
+        driver.navigate().back();
 
         NativeAppAndroidLocators nativeAppAndroidLocators = new NativeAppAndroidLocators(driver);
 
