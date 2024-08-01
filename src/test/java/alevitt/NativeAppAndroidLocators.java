@@ -2,6 +2,7 @@ package alevitt;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +13,12 @@ import java.util.Arrays;
 
 
 public class NativeAppAndroidLocators {
-    @FindBy(xpath = "//*[@text=\"Preference\"]") private static WebElement searchElement;
+    @FindBy(xpath = "//*[@text=\"Preference\"]")
+    private static WebElement findByElement;
+
+    @AndroidFindBy(xpath = "//*[@text=\"Text\"]")
+    private static WebElement androidFindByElement;
+
     public NativeAppAndroidLocators(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
@@ -20,7 +26,7 @@ public class NativeAppAndroidLocators {
     public static void main(String[] args) throws MalformedURLException{
         AppiumDriver driver = DriverInitialization.initializeDriver();
 
-        WebElement menuElementAccessibility = driver.findElement(AppiumBy.accessibilityId("Accessibility"));
+        /*WebElement menuElementAccessibility = driver.findElement(AppiumBy.accessibilityId("Accessibility"));
         menuElementAccessibility.click();
         driver.navigate().back();
 
@@ -58,10 +64,14 @@ public class NativeAppAndroidLocators {
 
         WebElement menuElementOs = driver.findElements(AppiumBy.androidUIAutomator("new UiSelector().resourceId(\"android:id/text1\")")).get(8);
         menuElementOs.click();
-        driver.navigate().back();
+        driver.navigate().back();*/
 
         NativeAppAndroidLocators nativeAppAndroidLocators = new NativeAppAndroidLocators(driver);
-        searchElement.click();
+
+        findByElement.click();
+        driver.navigate().back();
+
+        androidFindByElement.click();
         driver.navigate().back();
     }
 }
